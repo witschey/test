@@ -1,2 +1,2 @@
 #!/bin/sh
-kubectl apply -f ./namespace.yaml --validate=false
+kubectl apply -f namespace.yaml --validate=false
