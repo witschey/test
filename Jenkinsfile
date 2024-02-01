@@ -14,8 +14,8 @@ pipeline{
                     usernameVariable: 'sshUser'
                 )]) {
                     def remote = [:];
-                    remote.name = '192.168.1.75';
-                    remote.host = '192.168.1.75';
+                    remote.name = '192.168.1.70';
+                    remote.host = '192.168.1.70';
                     remote.user = sshUser; 
                     remote.identityFile = sshKey;
                     remote.allowAnyHosts = true;
