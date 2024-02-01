@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: witschey-rtp
+  namespace: witschey
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app:  witschey-rtp
+  template:
+    metadata:
+      labels:
+        app:  witschey-rtp
+    spec:
+      imagePullSecrets:
+      - name: jfrogcred
+      containers:
+      - name:  witschey-rtp
+        image: witschey.jfrog.io/docker-docker-local/ttrend:2.1.2
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
