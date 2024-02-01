@@ -9,7 +9,6 @@ pipeline{
            remote.user = remote_user; 
            remote.password = '12345678';
            remote.allowAnyHosts = true;
-      }
        stages {
         stage("Deploy Kubernetes") {
         steps {
@@ -23,3 +22,4 @@ pipeline{
                 }
             }
         }
+}
