@@ -7,17 +7,11 @@ pipeline{
     stages {
         stage("Deploy Kubernetes") {
         steps {
-            script {
-                    withCredentials([sshUserPrivateKey(
-                    credentialsId: "ssh_remote_user", 
-                    keyFileVariable: 'sshKey',
-                    usernameVariable: 'sshUser'
-                )]) {
                     def remote = [:];
                     remote.name = '192.168.1.70';
                     remote.host = '192.168.1.70';
-                    remote.user = sshUser; 
-                    remote.identityFile = sshKey;
+                    remote.user = remote_user; 
+                    remote.password = '12345678'
                     remote.allowAnyHosts = true;
     
                     sshCommand remote: remote, command: "ls -lrt"
@@ -30,5 +24,3 @@ pipeline{
                 }
             }
         }
-    }
-}
