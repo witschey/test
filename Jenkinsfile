@@ -8,7 +8,6 @@ pipeline{
         stage("Deploy Kubernetes") {
         steps {
             script {
-                     {
                     def remote = [:];
                     remote.name = '192.168.1.70';
                     remote.host = '192.168.1.70';
@@ -27,6 +26,5 @@ pipeline{
             }
         }
     }
-}
 
             
