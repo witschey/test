@@ -2,15 +2,17 @@ pipeline{
     agent{
       node{
           label 'maven'
-      }
-    } 
-        node {
+      }       
+    }
+     node {
   def remote = [:]
   remote.name = '192.168.1.70'
   remote.host = '192.168.1.70'
   remote.user = 'remote_user'
   remote.password = '12345678'
   remote.allowAnyHosts = true
+          }
+    stages {
                     stage('Remote SSH') {
                         sshPut remote: remote, from: 'namespace.yaml', into: '.'
                         sshPut remote: remote, from: 'secret.yaml', into: '.'
@@ -20,7 +22,6 @@ pipeline{
                         }
                   }
           }   
-
-                   
+               
 
             
