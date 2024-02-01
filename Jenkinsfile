@@ -22,6 +22,9 @@ pipeline{
     
                     sshCommand remote: remote, command: "ls -lrt"
                     sshPut remote: remote, from: 'namespace.yaml', into: '.'
+                    sshPut remote: remote, from: 'secret.yaml', into: '.'
+                    sshPut remote: remote, from: 'deployment.yaml', into: '.'
+                    sshPut remote: remote, from: 'service.yaml', into: '.'
                     sshScript remote: remote, script: "Deploy.sh"
                     } 
                 }
