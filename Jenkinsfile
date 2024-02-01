@@ -2,7 +2,6 @@ pipeline{
       agent{
           label 'maven'
       }
-    stages {
         node{ 
           def remote = [:];
            remote.name = '192.168.1.70';
@@ -11,6 +10,7 @@ pipeline{
            remote.password = '12345678';
            remote.allowAnyHosts = true;
       }
+       stages {
         stage("Deploy Kubernetes") {
         steps {
                     sshCommand remote: remote, command: "ls -lrt"
