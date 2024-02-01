@@ -5,7 +5,8 @@ pipeline {
       } 
     }
     stages {
-        stage ('ssh') {
+        stage('ssh') {
+          steps {
               def remote = [:]
               remote.name = '192.168.1.70'
               remote.host = '192.168.1.70'
@@ -17,6 +18,7 @@ pipeline {
               sshPut remote: remote, from: 'deployment.yaml', into: '.'
               sshPut remote: remote, from: 'service.yaml', into: '.'
               sshScript remote: remote, script: "Deploy.sh"
+          }
         }
     }
 }
