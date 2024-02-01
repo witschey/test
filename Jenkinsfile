@@ -4,7 +4,6 @@ pipeline{
           label 'maven'
       }
     } 
-    stages {
         node {
   def remote = [:]
   remote.name = '192.168.1.70'
@@ -21,7 +20,7 @@ pipeline{
                         }
                   }
           }   
-}
+
                    
 
             
